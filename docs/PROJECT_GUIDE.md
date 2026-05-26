@@ -36,6 +36,48 @@ The alias maps to `src/*` in `tsconfig.json`.
 
 Run `npm run check` before deploying or after larger changes.
 
+## Git Workflow
+
+Use a lightweight workflow. This is a solo portfolio project, so avoid heavy process unless it helps you stay organized.
+
+- Keep `main` working and deployable.
+- Commit locally at meaningful checkpoints.
+- Push when work should be backed up remotely, shared, or deployed.
+- Use short-lived branches for larger changes or anything that might break the site.
+- Commit directly to `main` for tiny safe edits, like copy fixes.
+- Use issues for tasks you might forget, not for every small thought.
+- Pull requests are optional, but useful if you want review history, screenshots, or CI checks before merging.
+
+Good branch names:
+
+```bash
+homepage-layout
+add-projects-section
+setup-seo-metadata
+polish-mobile-nav
+```
+
+Good issue ideas:
+
+- Add project cards with screenshots
+- Write About section copy
+- Add resume download
+- Set metadata and Open Graph image
+- Improve mobile spacing
+- Deploy to Vercel
+
+Typical branch workflow:
+
+```bash
+git switch -c add-projects-section
+npm run check
+git add .
+git commit -m "Add projects section"
+git switch main
+git merge add-projects-section
+git push
+```
+
 ## Upkeep Notes
 
 - Keep `package-lock.json` committed and use `npm install` for dependency updates.
